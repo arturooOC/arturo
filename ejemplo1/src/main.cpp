@@ -3,6 +3,8 @@
 #include <HTTPClient.h>
 #include <ArduinoJson.h>
 
+// Arturo Ortega Cabera
+
 class conexionWeb{
   private:
 
@@ -54,8 +56,8 @@ DateTime *reloj;
 StaticJsonDocument<512> horaActual;
 
 
-const char *ssid="Ubee16F8-2.4G";
-const char *passwrd="5F99F616F8";
+const char *ssid="Familia Ortega";
+const char *passwrd="F4M1L14@123a";
 
 
 void setup() {
@@ -64,13 +66,13 @@ void setup() {
   reloj=new DateTime();
   
 }
-int suma=0;
+int sumatoria=0;
 void loop() {
-  suma++;
+  sumatoria++;
   horaActual.clear();
   reloj->getTime();
   horaActual["hora"]=reloj->timeStringBuff;
-  horaActual["Sumatoria"]=suma;
+  horaActual["Sumatoria"]=sumatoria;
   serializeJson(horaActual,Serial);
   Serial.println("");
   delay(1000);
